@@ -444,7 +444,8 @@ public class CubeGLRenderer extends ViewToGLRenderer {
 
         // Do a complete rotation every 10 seconds.
         long time = SystemClock.uptimeMillis() % 10000L;
-        float angleInDegrees = (360.0f / 10000.0f) * ((int) time);
+//        float angleInDegrees = (360.0f / 10000.0f) * ((int) time);
+        float angleInDegrees = 0;
 
         // Set our per-vertex lighting program.
         GLES20.glUseProgram(mProgramHandle);

@@ -1,8 +1,8 @@
 package com.self.viewtoglrendering;
 
 import android.opengl.GLSurfaceView;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -15,6 +15,7 @@ public class MainActivity extends ActionBarActivity {
     private GLSurfaceView mGLSurfaceView;
     private GLRenderable mGLLinearLayout;
     private WebView mWebView;
+    private GLWebView mGLWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +31,20 @@ public class MainActivity extends ActionBarActivity {
         mGLSurfaceView = (GLSurfaceView) findViewById(R.id.gl_surface_view);
         mGLLinearLayout = (GLRenderable) findViewById(R.id.gl_layout);
         mWebView = (WebView) findViewById(R.id.web_view);
-
+        mGLWebView = (GLWebView) findViewById(R.id.gl_webview);
         mGLSurfaceView.setEGLContextClientVersion(2);
         mGLSurfaceView.setRenderer(viewToGlRenderer);
 
-        mGLLinearLayout.setViewToGLRenderer(viewToGlRenderer);
+//        mGLLinearLayout.setViewToGLRenderer(viewToGlRenderer);
 
-        mWebView.setWebViewClient(new WebViewClient());
-        mWebView.setWebChromeClient(new WebChromeClient());
-        mWebView.loadUrl("http://stackoverflow.com/questions/12499396/is-it-possible-to-render-an-android-view-to-an-opengl-fbo-or-texture");
+//        mWebView.setWebViewClient(new WebViewClient());
+//        mWebView.setWebChromeClient(new WebChromeClient());
+//        mWebView.loadUrl("http://www.baidu.com");
+
+        mGLWebView.setViewToGLRenderer(viewToGlRenderer);
+        mGLWebView.setWebViewClient(new WebViewClient());
+        mGLWebView.setWebChromeClient(new WebChromeClient());
+        mGLWebView.loadUrl("http://www.baidu.com");
     }
 
 
